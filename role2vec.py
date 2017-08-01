@@ -176,8 +176,8 @@ class Role2Vec:
         
                 
 
-            
-for i in ["a midsummer night's dream",'romeo and juliet']:
+PLAY_LIST= ["a midsummer night's dream",'romeo and juliet']           
+for i in PLAY_LIST:
     print(i)                    
     hamlet_vec_pvbow=Role2Vec(i,'pvbow',batch_size=400,window_size=5,n_neg_samples=5)
     hamlet_words,doc_embeddings_cbow=hamlet_vec_pvbow.build_model()
