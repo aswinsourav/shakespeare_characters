@@ -179,14 +179,14 @@ class Role2Vec:
 PLAY_LIST= ["a midsummer night's dream",'romeo and juliet']           
 for i in PLAY_LIST:
     print(i)                    
-    hamlet_vec_pvbow=Role2Vec(i,'pvbow',batch_size=400,window_size=5,n_neg_samples=5)
-    hamlet_words,doc_embeddings_cbow=hamlet_vec_pvbow.build_model()
+    vec_pvbow=Role2Vec(i,'pvbow',batch_size=400,window_size=5,n_neg_samples=5)
+    word_vec_cbow,doc_embeddings_cbow=vec_pvbow.build_model()
     
-    hamlet_vec_pvdw=Role2Vec(i,'pvdw',batch_size=128,window_size=8,n_neg_samples=30)
-    hamlet_words,doc_embeddings_pvdw=hamlet_vec_pvdw.build_model()
+    vec_pvdm=Role2Vec(i,'pvdw',batch_size=128,window_size=8,n_neg_samples=30)
+    word_vec_pvdm,doc_embeddings_pvdm=vec_pvdm.build_model()
     
     doc_embeddings_combined=np.minimum.reduce([doc_embeddings_pvdw,doc_embeddings_cbow])
-    hamlet_vec_pvdw.plot_chars(doc_embeddings_pvdw)
+    vec_pvdw.plot_chars(doc_embeddings_combined)
 
 
                     
